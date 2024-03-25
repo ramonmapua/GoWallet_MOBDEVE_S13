@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CurrencyConverter">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/blue"
+            android:titleTextColor="@color/white"
+            android:title="GoWallet">
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:text="Add Country"
+                android:textColor="@color/blue"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="bottom">
+            </TextView>
+
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="From"
+                android:textColor="@color/black"
+                android:textSize="18sp">
+            </TextView>
+
+            <!-- TODO: pass to data -->
+            <Spinner
+                android:id="@+id/spinnerFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp">
+            </Spinner>
+
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="To"
+                android:textColor="@color/black"
+                android:textSize="18sp">
+            </TextView>
+
+            <!-- TODO: pass to data -->
+            <Spinner
+                android:id="@+id/spinnerTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp">
+            </Spinner>
+
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Amount"
+                android:textColor="@color/black"
+                android:textSize="18sp">
+            </TextView>
+
+            <!-- TODO: pass to data -->
+            <EditText
+                android:id="@+id/amountEntered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Amount"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                android:inputType="numberDecimal">
+            </EditText>
+
+            <Button
+                android:id="@+id/convertButton"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Convert"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/yellow">
+            </Button>
+
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Result"
+                android:textColor="@color/black"
+                android:textSize="18sp">
+            </TextView>
+
+            <!-- TODO: pass to data -->
+            <TextView
+                android:id="@+id/amountConverted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Amount Converted"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                android:padding="16dp">
+            </TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

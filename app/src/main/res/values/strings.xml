@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">GoWallet</string>
+    <string-array name="currencies">
+        <item>USD</item>
+        <item>PHP</item>
+        <item>SGD</item>
+        <item>THB</item>
+        <item>HKD</item>
+        <item>JPY</item>
+    </string-array>
+
+    <string-array name="currencies2">
+        <item>USD</item>
+        <item>PHP</item>
+        <item>SGD</item>
+        <item>THB</item>
+        <item>HKD</item>
+        <item>JPY</item>
+    </string-array>
+
+    <string-array name="countries">
+        <!-- TODO add countries -->
+        <item>Philippines</item>
+        <item>Singapore</item>
+        <item>Thailand</item>
+        <item>Japan</item>
+    </string-array>
+</resources>

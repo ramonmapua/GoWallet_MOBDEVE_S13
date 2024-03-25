@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage">
+
+    <!-- TODO: FIX BUTTON UI !! -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/blue"
+            android:titleTextColor="@color/white"
+            android:title="GoWallet">
+        </androidx.appcompat.widget.Toolbar>
+
+            <!-- TODO: pull from data -->
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="Hi [Name]!"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textAlignment="center">
+            </TextView>
+
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="Recent trip expenses"
+                android:textSize="18sp">
+            </TextView>
+
+            <!-- TODO: pull from data -->
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="P24,506.78"
+                android:textSize="36sp"
+                android:textStyle="bold">
+            </TextView>
+
+            <!-- TODO: pull from data -->
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="Country: Singapore"
+                android:textSize="16sp">
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:text="Other Country Expenses"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+                </TextView>
+                <Button
+                    android:id="@+id/viewAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:backgroundTint="@color/white"
+                    android:text="View All"
+                    android:textColor="@color/black"
+                    android:textSize="16sp">
+                </Button>
+            </LinearLayout>
+
+            <!-- TODO: pull from data -->
+            <Button
+                android:id="@+id/country1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="Singapore"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold">
+            </Button>
+
+            <!-- TODO: pull from data -->
+            <Button
+                android:id="@+id/country2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="Thailand"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold">
+            </Button>
+
+            <!-- TODO: pull from data -->
+            <Button
+                android:id="@+id/country3"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="Hong Kong"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold">
+            </Button>
+
+            <Button
+                android:id="@+id/addCountry"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/white"
+                android:text="Add Country"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold">
+            </Button>
+
+            <Button
+                android:id="@+id/currencyConverter"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="Currency Converter"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold">
+            </Button>
+
+    </LinearLayout>
+
+</RelativeLayout>
