@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562711725879",
+    "project_id": "gowallet-mobdeve-s13",
+    "storage_bucket": "gowallet-mobdeve-s13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562711725879:android:5b1865ce10d97dfde37cb2",
+        "android_client_info": {
+          "package_name": "com.mobdeve.s13.gowallet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuKHe1RDrec_kmLVxsTzZPliIqeJLEk9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
