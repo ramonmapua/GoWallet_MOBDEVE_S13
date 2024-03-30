@@ -39,10 +39,11 @@
 
             <!-- TODO: pass to data -->
             <EditText
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Username"
+                android:hint="Email"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="20sp">
@@ -50,6 +51,7 @@
 
             <!-- TODO: pass to data -->
             <EditText
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

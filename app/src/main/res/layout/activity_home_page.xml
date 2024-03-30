@@ -24,6 +24,7 @@
 
             <!-- TODO: pull from data -->
             <TextView
+                android:id="@+id/greeting"
                 android:layout_width="415dp"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"

@@ -14,17 +14,23 @@ class LoginPage : AppCompatActivity() {
 
     lateinit var emailEditText: EditText
     lateinit var passwordEditText: EditText
-    lateinit var loginButton : Button
+    lateinit var loginButton: Button
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         // Initialize Firebase Auth
-        var auth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()  // Removed redundant 'var'
+
+        // Initialize EditTexts
+        emailEditText = findViewById(R.id.emailEditText)
+        passwordEditText = findViewById(R.id.passwordEditText)
+        loginButton = findViewById(R.id.loginButton)
 
         // Login Button Click Listener
         loginButton.setOnClickListener {
@@ -33,7 +39,7 @@ class LoginPage : AppCompatActivity() {
 
             // Validate input fields (optional)
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                Toast.makeText(this, "Please enter email and password.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "Please enter email and password.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -47,7 +53,7 @@ class LoginPage : AppCompatActivity() {
                         finish()  // Optional: Close login page after successful login
                     } else {
                         // Login failed, display error message
-                        Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Login failed!", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
