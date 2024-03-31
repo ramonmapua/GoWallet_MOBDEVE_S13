@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -26,6 +27,9 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import android.net.Uri
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+
 
 class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
@@ -36,12 +40,15 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     lateinit var etDescription: EditText
     lateinit var etPrice: EditText
     lateinit var spinnerCategory: Spinner
+    lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var lastKnownLocation: Location? = null
 
     private lateinit var db: FirebaseFirestore
 
     // Camera Permissions
     private val CAMERA_PERMISSION_REQUEST_CODE = 100 // request code for camera permission
-    private val CAPTURE_PHOTO_REQUEST_CODE = 101 // request code for capturing phot
+    private val CAPTURE_PHOTO_REQUEST_CODE = 101 // request code for capturing photo
+    private val LOCATION_PERMISSION_REQUEST_CODE = 102
     private var photoFilePath: String? = null // file path for saving capture photo
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,13 +82,14 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             checkCameraPermissionAndOpenCamera()
         }
         pinLocation.setOnClickListener {
-            val toPinLocation = Intent(this, PinLocation::class.java)
-            startActivity(toPinLocation)
+            getLastKnownLocation()
         }
         addExpenseFinish.setOnClickListener {
             // TODO: save data
             saveExpenseData(photoFilePath)
         }
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
     }
 
     // For the date
@@ -152,8 +160,14 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             "description" to description,
             "price" to price,
             "date" to date,
-            "receipt" to photoFilePath
+            "receipt" to photoFilePath,
+            "location" to lastKnownLocation?.let { "${it.latitude}, ${it.longitude}" }
         )
+
+        val intent = Intent(this@AddExpense, ViewCountry::class.java)
+        intent.putExtra("expenseData", expenseData)
+        startActivity(intent)
+        finish()
 
         // Add expense data to Firebase
         db.collection("expenses")
@@ -167,4 +181,28 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                 println("Error adding document: $e")
             }
     }
+
+    private fun requestLocationPermissions() {
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+    }
+
+    private fun areLocationPermissionsGranted(): Boolean {
+        return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun getLastKnownLocation() {
+        if (areLocationPermissionsGranted()) {
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { location: Location? ->
+                    lastKnownLocation = location
+                    saveExpenseData(photoFilePath)
+
+                    val intent = Intent(this@AddExpense, ViewCountry::class.java)
+                    startActivity(intent)
+                }
+        } else {
+            requestLocationPermissions()
+        }
+    }
+
 }
