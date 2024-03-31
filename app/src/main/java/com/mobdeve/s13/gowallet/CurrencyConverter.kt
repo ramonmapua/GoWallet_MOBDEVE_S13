@@ -38,8 +38,9 @@ class CurrencyConverter : AppCompatActivity() {
         val spinnerTo = findViewById<Spinner>(R.id.spinnerTo)
         val amountConverted = findViewById<TextView>(R.id.amountConverted)
         val convertButton = findViewById<Button>(R.id.convertButton)
-        spinnerFrom.adapter = adapter
-        spinnerTo.adapter = adapter
+
+        spinnerFrom.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, currencies.keys.toList())
+        spinnerTo.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, currencies.keys.toList())
 
         convertButton.setOnClickListener {
             val amount = amountEntered.text.toString().toDoubleOrNull()
@@ -50,13 +51,10 @@ class CurrencyConverter : AppCompatActivity() {
             val fromCurrency = spinnerFrom.selectedItem.toString()
             val toCurrency = spinnerTo.selectedItem.toString()
 
-            val exchangeRate = currencies[fromCurrency]?.div(currencies[toCurrency] ?: 1.0)
-            if (exchangeRate == null) {
-                return@setOnClickListener
-            }
+            val exchangeRate = currencies[fromCurrency]!! / currencies[toCurrency]!!
 
             val result = String.format("%.2f", amount * exchangeRate)
-            amountConverted.text = "$amount $fromCurrency = $result $toCurrency"
+            amountConverted.text = "$result"
         }
     }
 }
