@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "562711725879",
-    "project_id": "gowallet-mobdeve-s13",
-    "storage_bucket": "gowallet-mobdeve-s13.appspot.com"
+    "project_number": "350420409510",
+    "project_id": "gowallet-840ca",
+    "storage_bucket": "gowallet-840ca.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:562711725879:android:5b1865ce10d97dfde37cb2",
+        "mobilesdk_app_id": "1:350420409510:android:59de61bba690690df3a867",
         "android_client_info": {
           "package_name": "com.mobdeve.s13.gowallet"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBuKHe1RDrec_kmLVxsTzZPliIqeJLEk9A"
+          "current_key": "AIzaSyB-TV4VqhJlQ57VzDlqdJwfgeOBx_eg5sE"
         }
       ],
       "services": {
