@@ -70,6 +70,7 @@
             </TextView>
             <!-- TODO: pull from data -->
             <TableLayout
+                android:id="@+id/expensesTable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"> <!-- Column to stretch, 0-based index -->
                 <TableRow>
@@ -98,40 +99,40 @@
                         android:text="Date"
                         android:textStyle="bold"/>
                 </TableRow>
-            </TableLayout>
-            <TableLayout
-                android:id="@+id/expensesTable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"> <!-- Column to stretch, 0-based index -->
-                <TableRow>
-                    <TextView
-                        android:id="@+id/expenseCategory"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:text="Transportation" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-                    <TextView
-                        android:id="@+id/expensePrice"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:text="SGD 100.00" />
+                <!--                <TableRow>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/expenseCategory"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1.0"-->
+<!--                        android:text="Transportation" />-->
 
-                    <TextView
-                        android:id="@+id/expenseDescription"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:text="Bus, train, Grab" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/expensePrice"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1.0"-->
+<!--                        android:text="SGD 100.00" />-->
 
-                    <TextView
-                        android:id="@+id/expenseDate"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:text="2024/01/01" />
-                </TableRow>
+<!--                    <TextView-->
+<!--                        android:id="@+id/expenseDescription"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1.0"-->
+<!--                        android:text="Bus, train, Grab" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/expenseDate"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1.0"-->
+<!--                        android:text="2024/01/01" />-->
+<!--                </TableRow>-->
             </TableLayout>
             <Button
                 android:id="@+id/addExpenseButton"

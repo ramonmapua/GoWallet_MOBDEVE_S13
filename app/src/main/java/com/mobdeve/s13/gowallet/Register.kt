@@ -30,11 +30,8 @@ class Register : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Get references to UI elements
-        val firstName = findViewById<EditText>(R.id.getFirstName)
-        val lastName = findViewById<EditText>(R.id.getLastName)
-        val username = findViewById<EditText>(R.id.getUsername)
-        val password = findViewById<EditText>(R.id.getPassword)
         val email = findViewById<EditText>(R.id.getEmail)
+        val password = findViewById<EditText>(R.id.getPassword)
         val registerButton = findViewById<Button>(R.id.registerButton)
 
         // Register button click listener

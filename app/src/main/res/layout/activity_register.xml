@@ -39,42 +39,22 @@
             </TextView>
 
             <!-- TODO: pass to data -->
-            <EditText
-                android:id="@+id/getFirstName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="First Name"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="20sp">
-            </EditText>
+
+            <!-- TODO: pass to data -->
+
+            <!-- TODO: pass to data -->
 
             <!-- TODO: pass to data -->
             <EditText
-                android:id="@+id/getLastName"
+                android:id="@+id/getEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Last Name"
+                android:hint="Email Address"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp">
-            </EditText>
+                android:textSize="20sp"></EditText>
 
-            <!-- TODO: pass to data -->
-            <EditText
-                android:id="@+id/getUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="Username"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="20sp">
-            </EditText>
-
-            <!-- TODO: pass to data -->
             <EditText
                 android:id="@+id/getPassword"
                 android:layout_width="match_parent"
@@ -87,16 +67,6 @@
             </EditText>
 
             <!-- TODO: pass to data -->
-            <EditText
-                android:id="@+id/getEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="Email Address"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="20sp">
-            </EditText>
 
 
             <Button

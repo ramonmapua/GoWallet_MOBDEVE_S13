@@ -58,7 +58,8 @@
                 android:hint="Password"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:inputType="textPassword">
             </EditText>
 
             <Button
