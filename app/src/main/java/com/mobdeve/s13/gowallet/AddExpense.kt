@@ -29,10 +29,13 @@ import java.util.Locale
 import android.net.Uri
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 
 
 class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
+    private val db = Firebase.firestore
     lateinit var addReceipt : Button
     lateinit var pinLocation : Button
     lateinit var addExpenseFinish : Button
@@ -43,22 +46,17 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     lateinit var fusedLocationClient: FusedLocationProviderClient
     private var lastKnownLocation: Location? = null
 
-    private lateinit var db: FirebaseFirestore
-
     // Camera Permissions
     private val CAMERA_PERMISSION_REQUEST_CODE = 100 // request code for camera permission
     private val CAPTURE_PHOTO_REQUEST_CODE = 101 // request code for capturing photo
     private val LOCATION_PERMISSION_REQUEST_CODE = 102
-    private var photoFilePath: String? = null // file path for saving capture photo
+    private var photoFilePath: String = "photo_link" // file path for saving capture photo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        // Initialize Firebase Firestore
-        db = FirebaseFirestore.getInstance()
 
         addReceipt = findViewById(R.id.addReceipt)
         pinLocation = findViewById(R.id.pinLocation)
@@ -149,11 +147,11 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         return if (value < 10) "0$value" else "$value"
     }
 
-    private fun saveExpenseData(photoFilePath: String?) {
-        val category = spinnerCategory.selectedItem.toString()
-        val description = etDescription.text.toString()
-        val price = etPrice.text.toString()
-        val date = etDate.text.toString()
+    private fun saveExpenseData(photoFilePath: String ) {
+        val category = spinnerCategory.getSelectedItem().toString();
+        val description = etDescription.text.toString();
+        val price = etPrice.text.toString();
+        val date = etDate.text.toString();
 
         val expenseData = hashMapOf(
             "category" to category,
@@ -162,24 +160,19 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             "date" to date,
             "receipt" to photoFilePath,
             "location" to lastKnownLocation?.let { "${it.latitude}, ${it.longitude}" }
-        )
-
-        val intent = Intent(this@AddExpense, ViewCountry::class.java)
-        intent.putExtra("expenseData", expenseData)
-        startActivity(intent)
-        finish()
+        );
 
         // Add expense data to Firebase
-        db.collection("expenses")
+        db.collection("gowallet")
             .add(expenseData)
             .addOnSuccessListener { documentReference ->
-                val intent = Intent(this@AddExpense, ViewCountry::class.java)
-                startActivity(intent)
-                finish()
+                // Expense added successfully, display a success message (optional)
+                finish(); // Close AddExpense activity after successful addition
             }
             .addOnFailureListener { e ->
-                println("Error adding document: $e")
-            }
+                println("Error adding document: $e");
+                // Handle errors, display an error message to the user (optional)
+            };
     }
 
     private fun requestLocationPermissions() {
@@ -206,3 +199,4 @@ class AddExpense : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     }
 
 }
+

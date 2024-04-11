@@ -25,7 +25,7 @@ class LoginPage : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()  // Removed redundant 'var'
+        auth = FirebaseAuth.getInstance()
 
         // Initialize EditTexts
         emailEditText = findViewById(R.id.emailEditText)

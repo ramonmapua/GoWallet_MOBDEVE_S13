@@ -5,90 +5,145 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewCountry">
-
-    <!-- Toolbar -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/blue"
-        android:titleTextColor="@color/white"
-        android:title="GoWallet" />
-
+    <!-- TODO: summarized -->
+    <!-- TODO: pull country name, total expenses, and table from data -->
+    <!-- TODO: fix table UI -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_below="@id/toolbar">
+        android:orientation="vertical">
 
-        <!-- Country Name -->
-        <TextView
-            android:id="@+id/countryNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:textAlignment="center" />
-
-        <!-- Total Expenses -->
-        <TextView
-            android:id="@+id/totalExpensesTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <!-- All Expenses Table -->
-        <TableLayout
-            android:id="@+id/expenseTable"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/blue"
+            android:titleTextColor="@color/white"
+            android:title="GoWallet">
+        </androidx.appcompat.widget.Toolbar>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="*">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <!-- TODO: pull from data -->
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:text="Singapore"
+                android:textColor="@color/blue"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:paddingLeft="16dp">
+            </TextView>
 
-            <!-- Table Header -->
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Category"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Price"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Date"
-                    android:textStyle="bold" />
-            </TableRow>
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="Recent trip expenses"
+                android:textSize="18sp">
+            </TextView>
 
-            <!-- Table Rows will be added dynamically here -->
+            <!-- TODO: pull from data -->
+<!--            <TextView-->
+<!--                android:id="@+id/totalAmount"-->
+<!--                android:layout_width="415dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:text="P24,506.78"-->
+<!--                android:textSize="36sp"-->
+<!--                android:textStyle="bold">-->
+<!--            </TextView>-->
 
-        </TableLayout>
+            <TextView
+                android:layout_width="415dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:text="All Expenses"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </TextView>
+            <!-- TODO: pull from data -->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"> <!-- Column to stretch, 0-based index -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="Category"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="Price"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="Description"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="Date"
+                        android:textStyle="bold"/>
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:id="@+id/expensesTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"> <!-- Column to stretch, 0-based index -->
+                <TableRow>
+                    <TextView
+                        android:id="@+id/expenseCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="Transportation" />
 
-        <!-- Add Expense Button -->
-        <Button
-            android:id="@+id/addExpenseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Add Expense"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/yellow" />
+                    <TextView
+                        android:id="@+id/expensePrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="SGD 100.00" />
 
+                    <TextView
+                        android:id="@+id/expenseDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="Bus, train, Grab" />
+
+                    <TextView
+                        android:id="@+id/expenseDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:text="2024/01/01" />
+                </TableRow>
+            </TableLayout>
+            <Button
+                android:id="@+id/addExpenseButton"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Add Expense"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/yellow">
+            </Button>
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

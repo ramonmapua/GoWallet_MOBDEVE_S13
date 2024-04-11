@@ -54,6 +54,7 @@
 
             <!-- TODO: pull from data -->
             <TextView
+                android:id="@+id/currentCountry"
                 android:layout_width="415dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
@@ -122,12 +123,12 @@
             </Button>
 
             <Button
-                android:id="@+id/addCountry"
+                android:id="@+id/addExpense"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="@color/white"
-                android:text="Add Country"
+                android:text="Add Expense"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold">
